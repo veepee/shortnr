@@ -57,7 +57,7 @@ function getCompleteUrl(link) {
   
   // If the path is empty (URL is of form *example.com), 
   // it needs to have a trailing slash or it is interpreted as relative
-  if(obj.path == null) {
+  if (obj.path == null) {
     completeUrl += '/';
   } else {
     completeUrl += obj.path;
@@ -96,6 +96,10 @@ app.get('/:id', function(req, res, next) {
   }
 
   res.redirect(301, link);
+});
+
+app.use(function(err, req, res, next) {
+  res.status(500).send(err.message);
 });
 
 module.exports = app;
