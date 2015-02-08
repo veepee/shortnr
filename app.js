@@ -56,7 +56,7 @@ function getCompleteUrl(link) {
   var completeUrl = obj.protocol + '//' + obj.host;
   
   // If the path is empty (URL is of form *example.com), 
-  // it needs to have a trailing slash or it is interpreted as relative
+  // it needs to have a trailing slash for it not to be interpreted as relative
   if (obj.path == null) {
     completeUrl += '/';
   } else {
