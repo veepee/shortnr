@@ -1,4 +1,5 @@
 var express = require('express');
+var path = require('path');
 var bodyParser = require('body-parser');
 var crypto = require('crypto');
 
@@ -41,7 +42,7 @@ function getUrl(id) {
 }
 
 app.get('/', function(req, res) {
-  res.send('shortnr - yet another url shortening service');
+  res.sendFile(path.join(__dirname, '/public', 'index.html'));
 });
 
 app.post('/shorten', function(req, res) {
